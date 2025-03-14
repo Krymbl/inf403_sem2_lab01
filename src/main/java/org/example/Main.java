@@ -16,7 +16,11 @@ public class Main {
         arr.add(10);
 
         //Добавление элемента на определенную позицию, метод add с позицией
-        arr.add(4,3);
+        try {
+            arr.add(4, -1);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Вы зашли за пределы массива при попытке добавить элемент\n");
+        }
 
         arr.add(5);
         System.out.println("Исходный массив: " + arr);
@@ -25,24 +29,29 @@ public class Main {
 
         //Удаление элемента на определенной позиции, метод remove
         int n = 4;
-        arr.remove(n);
-        System.out.println("Массив после удаления элемента на " + (int)(n+1) + " позиции: " + arr);
+        Boolean rem = true;
+        try {
+            arr.remove(n);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Вы зашли за пределы массива при попытке удалить элемент");
+            rem = false;
+        } finally {
+            if (rem) {
+                System.out.println("Массив после удаления элемента на " + (int) (n + 1) + " позиции: " + arr);
+            }
+                }
 
-        //Сортировка по убыванию, метод sort
-        arr.sort(false);
-        System.out.println("Отсортированный по убыванию: " + arr);
+            //Сортировка по убыванию, метод sort
+            arr.sort(false);
+            System.out.println("Отсортированный по убыванию: " + arr);
 
-        //Сортировка по возрастанию, метод sort
-        arr.sort(true);
-        System.out.println("Отсортированный по возрастанию: " + arr);
+            //Сортировка по возрастанию, метод sort
+            arr.sort(true);
+            System.out.println("Отсортированный по возрастанию: " + arr + "\n");
 
-        //Получаем элемента массива i индекса
-        for (int i = 0; i < arr.size(); i++) {
-            System.out.println(arr.get(i));
+            //Получаем элемента массива i индекса
+            for (int i = 0; i < arr.size(); i++) {
+                System.out.println(arr.get(i));
+            }
         }
-
-        //Выброс ошибки
-        arr.add(14,-1);
-
     }
-}
