@@ -59,7 +59,7 @@ public class List403Impl implements List403 {
     public boolean sort(boolean asc) {
         if (asc) {
             for (int i = 0; i < size - 1; i++) {
-                for (int j = 0; j < size - 1; j++) {
+                for (int j = 0; j < size - i - 1; j++) {
                     if (values[j] > values[j+1]) {
                         int f = values[j];
                         values[j] = values[j+1];
@@ -69,7 +69,7 @@ public class List403Impl implements List403 {
             }
         } else {
             for (int i = 0; i < size - 1; i++) {
-                for (int j = 0; j < size - 1; j++) {
+                for (int j = 0; j < size - i -1; j++) {
                     if (values[j] < values[j+1]) {
                         int f = values[j];
                         values[j] = values[j+1];
